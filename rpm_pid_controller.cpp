@@ -14,7 +14,7 @@ float PID_Controller::PID_Compute(float setpoint, float measurement, float dt){
     float error = setpoint - measurement;
     float prevError = setpoint - prevMeasurement;
     if(dt<=0.0f){
-        dt = 0.0f
+        return 0.0f; //return PID output = 0 if time error occured
     }
     //P
     float P = error*kP;
