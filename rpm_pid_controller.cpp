@@ -12,7 +12,7 @@ PID_Controller::PID_Controller(float kP, float kI, float kD){
 //NOTE: chưa xử lí Integral Windup và Derivative Kick
 float PID_Controller::PID_Compute(float setpoint, float measurement, float dt){
     float error = setpoint - measurement;
-    float prevError = setpoint - prevMeasurement;
+
     if(dt<=0.0f){
         return 0.0f; //return PID output = 0 if time error occured
     }
@@ -24,7 +24,7 @@ float PID_Controller::PID_Compute(float setpoint, float measurement, float dt){
     //D
     float derivative = 0.0f;
     if(initialized){
-        derivative = (error - prevError)/dt;
+        derivative = -(measurement - prevMeasurement)/dt; //using delta of measurement, prevent derivative kicks
     }    
     float D = derivative*kD;
     
