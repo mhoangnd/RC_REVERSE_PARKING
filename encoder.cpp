@@ -43,7 +43,7 @@ void encoder_init(){
 /* additional variables such as 'now' or 'currentCount' are used for capture the moment when 
 this function is called, prevent ISR from intervening the calculations of this function. */
 float encoder_get_rpm(){ //độ phân giải: 100ms; đĩa encoder 11 xung
-    float rpm = lastestRPM;
+    float rpm = latestRPM;
     uint32_t now = millis();
     uint32_t currentCount =  edgeCount;
     uint32_t elapsed = now - lastTime;
