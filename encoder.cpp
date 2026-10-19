@@ -5,6 +5,7 @@
 #define ENCODER_PHASE_A 16 //đọc rpm bằng kênh A
 #define ENCODER_PHASE_B 17 //đọc chiều quay bằng kênh B
 
+//MOTOR DIRECTION DEFINE
 #define FORWARD 1
 #define REVERSE -1
 
